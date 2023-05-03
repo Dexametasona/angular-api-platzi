@@ -1,0 +1,8 @@
+<div class="slider">
+  <div class="slides" [style.width]="images.length+'00%'">
+  <!-- <div class="slides"> -->
+    <img [style]="styles" *ngFor="let image of images, let i=index" [src]="image" [alt]="'Slide '+i+1">
+  </div>
+  <button class="btn prev" (click)="slide(false)"><img src="https://i.imgur.com/wdzN9hL.png" alt="prev_icon"></button>
+  <button class="btn next" (click)="slide(true)"><img src="https://i.imgur.com/wdzN9hL.png" alt="next_icon"></button>
+</div>

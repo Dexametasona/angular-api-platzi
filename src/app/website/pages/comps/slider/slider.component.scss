@@ -1,0 +1,39 @@
+.slider {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+.slides {
+  position: absolute;
+  top: 0;
+  left: 0;
+  // width: 300%;
+  height: 100%;
+  display: flex;
+}
+
+.slides img {
+  // width: calc(100% / 3);
+  height: 100%;
+  object-fit: cover;
+  transition: all ease-in-out .8s;
+}
+.btn{
+  position: absolute;
+  border: solid 1px transparent;
+  z-index: 2;
+  padding: 0.5rem;
+  background: radial-gradient(circle, rgba(171,177,175,1) 36%, rgba(255,255,255,1) 100%);
+  border-radius: 100%;
+  opacity: 70%;
+  top: calc(50% - 32px);
+}
+.next{
+  right: 0;
+}
+.prev{
+  left: 0;
+  transform: rotate(180deg)
+}

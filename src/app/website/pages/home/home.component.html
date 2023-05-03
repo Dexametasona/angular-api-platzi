@@ -1,0 +1,57 @@
+<p>home works!</p>
+<app-slider [images]="listImages"></app-slider>
+<button (click)="create()" class="px-2 py-1 bg-yellow-300">create</button>
+<button (click)="handleError()" class="px-2 py-1 bg-cyan-300">
+  lanzar error
+</button>
+<button (click)="login()" class="px-2 py-1 bg-cyan-300">
+  login
+</button>
+<button (click)="createUser()" class="px-2 py-1 bg-cyan-300">
+  create user
+</button>
+<button (click)="loginUser()" class="px-2 py-1 bg-cyan-300">
+  login user
+</button>
+<button (click)="download()" class="px-2 py-1 bg-green-300">
+  download
+</button>
+<input type="file" (change)="onUpload($event)">
+<img *ngIf="imgRta" [src]="imgRta">
+
+<main>
+  <div *ngFor="let prod of products" class="flex flex-col items-center">
+    <app-card *ngIf="prod.images[0]" [product]="prod" class="grow"></app-card>
+    <a
+      routerLink="/home"
+      [queryParams]="{'comunismo':prod.id}"
+      (click)="showDetail(prod.id)"
+      *ngIf="prod.images[0]"
+      class="border-2 px-2 py-1 bg-slate-200 cursor-pointer"
+    >
+      toggle
+    </a>
+    <button
+      (click)="update(prod.id)"
+      *ngIf="prod.images[0]"
+      class="border-2 px-2 py-1 bg-slate-200"
+    >
+      actualizar
+    </button>
+  </div>
+</main>
+<button (click)="moreData()" class="px-2 py-1 bg-red-300">mas datos</button>
+<!-- card of detail -->
+<section
+  class="product_detail p-2 bg-slate-200"
+  [class.active]="stateShowDetail"
+>
+  <button (click)="showDetail('')">
+    <img src="https://i.imgur.com/eyEDm1c.png" alt="close_icon" />
+  </button>
+  <span>product detail</span>
+  <app-card [product]="productDetail"></app-card>
+  <button (click)="delete()" class="border-2 px-2 py-1 bg-slate-500">
+    eliminar
+  </button>
+</section>

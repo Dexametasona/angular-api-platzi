@@ -1,0 +1,6 @@
+:host{
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: repeat(5, min-content);
+  text-align: center;
+}
